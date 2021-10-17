@@ -1,4 +1,4 @@
-package id.alian.news_app
+package id.alian.news_app.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

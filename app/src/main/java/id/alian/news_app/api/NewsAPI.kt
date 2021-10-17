@@ -1,6 +1,6 @@
 package id.alian.news_app.api
 
-import id.alian.news_app.NewsResponse
+import id.alian.news_app.model.NewsResponse
 import id.alian.news_app.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
