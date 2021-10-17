@@ -1,4 +1,4 @@
-package id.alian.news_app.ui.util
+package id.alian.news_app.util
 
 class Constants {
     companion object {

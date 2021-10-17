@@ -1,4 +1,4 @@
-package id.alian.news_app.ui
+package id.alian.news_app
 
 data class Source(
     val id: Any,

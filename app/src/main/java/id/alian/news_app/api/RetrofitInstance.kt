@@ -1,6 +1,6 @@
-package id.alian.news_app.ui.api
+package id.alian.news_app.api
 
-import id.alian.news_app.ui.util.Constants.Companion.BASE_URL
+import id.alian.news_app.util.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
