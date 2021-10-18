@@ -3,6 +3,7 @@ package id.alian.news_app.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import id.alian.news_app.model.Article
 import id.alian.news_app.model.NewsResponse
 import id.alian.news_app.repository.NewsRepository
 import id.alian.news_app.util.Resource
@@ -54,4 +55,13 @@ class NewsViewModel(
         return Resource.Error(response.message())
     }
 
+    fun saveArticle(article: Article) = viewModelScope.launch(Dispatchers.IO) {
+        newsRepository.upsert(article)
+    }
+
+    fun getSavedNews() = newsRepository.getSavedNews()
+
+    fun deleteArticle(article: Article) = viewModelScope.launch {
+        newsRepository.deleteArticle(article)
+    }
 }
