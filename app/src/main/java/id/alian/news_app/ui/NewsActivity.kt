@@ -3,11 +3,13 @@ package id.alian.news_app.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import id.alian.news_app.R
 import id.alian.news_app.databinding.ActivityNewsBinding
 import id.alian.news_app.db.ArticleDatabase
 import id.alian.news_app.repository.NewsRepository
+
 
 class NewsActivity : AppCompatActivity() {
 
@@ -23,8 +25,13 @@ class NewsActivity : AppCompatActivity() {
         val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
 
-
-
-        binding.bottomNavigationView.setupWithNavController(binding.newsNavHostFragment.findNavController())
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.newsNavHostFragment) as NavHostFragment?
+        NavigationUI.setupWithNavController(
+            binding.bottomNavigationView,
+            navHostFragment!!.navController
+        )
+//        val navHost = supportFragmentManager.findFragmentById(R.id.newsNavHostFragment)
+//        navHost?.let { binding.bottomNavigationView.setupWithNavController(it.findNavController()) }
     }
 }
