@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import id.alian.news_app.R
 import id.alian.news_app.adapters.NewsAdapter
 import id.alian.news_app.databinding.FragmentBreakingNewsBinding
@@ -64,7 +65,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let {
-                        Log.i(TAG, "An error occured : $it")
+                        Snackbar.make(view, it, Snackbar.LENGTH_SHORT).show()
                     }
                 }
 

@@ -10,7 +10,6 @@ import id.alian.news_app.databinding.ActivityNewsBinding
 import id.alian.news_app.db.ArticleDatabase
 import id.alian.news_app.repository.NewsRepository
 
-
 class NewsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNewsBinding
@@ -22,7 +21,7 @@ class NewsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val newsRepository = NewsRepository(ArticleDatabase(this))
-        val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
+        val viewModelProviderFactory = NewsViewModelProviderFactory(application, newsRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
 
         val navHostFragment = supportFragmentManager
